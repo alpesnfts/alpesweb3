@@ -1,0 +1,23 @@
+echo -e "================================ ALPES PRO ================================================================="
+sleep 5s
+
+echo -e "================================ SETUP PACKAGE MANAGERS ===================================================="
+sudo apt-get install -y curl
+
+echo -e "================================ UPDATE PACKAGE MANAGERS ==================================================="
+sudo apt update
+
+echo -e "================================ SETUP DOCKERS ============================================================="
+sudo apt install -y docker.io
+docker --version
+
+echo -e "================================ SETUP DOCKER COMPOSE ======================================================"
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+echo -e "================================ SETUP PERMISSAO NO DOCKER COMPOSE=========================================="
+sudo chmod +x /usr/local/bin/docker-compose
+
+echo -e "================================ VERIFICAÇÃO DOCKER COMPOSE ==============================================="
+docker-compose --version
+
+echo -e "================================= SETUP COMPLETO ==========================================================="
